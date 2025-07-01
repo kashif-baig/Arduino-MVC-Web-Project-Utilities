@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Arduino.MVC.NewProj": {
+      "commandName": "Project",
+      "commandLineArgs": "User_Login Home About Login",
+      "workingDirectory": "O:\\Projects\\DotNet\\Arduino MVC Template Builder\\Output"
+    }
+  }
+}

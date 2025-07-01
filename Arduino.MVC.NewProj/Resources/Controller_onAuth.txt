@@ -1,0 +1,15 @@
+    // Returns true if the supplied ticket successfully authenticates, false otherwise.
+    bool onAuthenticate(const char *ticket)
+    {
+        // Find user using authentication ticket from cookie.
+        // Updates their lastValidated time (if the ticket is valid).
+        const char *authenticatedUser = auth.getAuthenticatedUser(ticket);
+
+        if (authenticatedUser != NULL)
+        {
+            // Let web server know who the authenticated user is.
+            webServer->setAuthenticatedUser(authenticatedUser);
+            return true;
+        }
+        return false;
+    }

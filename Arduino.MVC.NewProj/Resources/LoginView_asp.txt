@@ -1,0 +1,29 @@
+$headingtext$
+@viewname Login
+@modeltype LoginModel*
+@minify true
+@mimetype TextHtml
+@viewbase ILayoutContentView
+@include "LoginModel.h"
+
+@content Title
+
+    Login
+
+@content Body
+
+    <p>Type in credentials and press Login.</p>		
+
+    <form method="post" action="/Login" id="form1">
+        <span>Username</span><br />
+        <input type="text" name="user" value="<%: model->username %>" /><br />
+        <span>Password</span><br />
+        <input type="password" name="pass" value="" /><br />
+        <input type="submit" name="btn1" value="Login" />
+    </form>
+    <br />
+    <%	if (model->status == LSLoginSuccess) { %>
+    <p>Login successful.</p>
+    <%  } else if (model->status == LSLoginFailed) { %>
+    <p>Login failed.</p>
+    <%	} %>

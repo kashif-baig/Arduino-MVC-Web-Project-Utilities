@@ -1,0 +1,28 @@
+#ifndef $viewname_upper$VIEW_H
+#define $viewname_upper$VIEW_H
+
+$headingtext$
+
+#include "IView.h"
+#include "$viewname$Model.h"
+
+class $viewname$View : public IView
+{
+public:
+	$viewname$View($viewname$Model *model, HttpRequest *request = getDefaultRequest()) : IView(ViewIdNotSpecified, NULL, request)
+	{
+		this->model = model;
+		this->viewMimeType = ApplicationJson;
+	}
+	$viewname$Model *getModel() const { return model; }
+
+protected:
+	$viewname$Model *model;
+
+	void onRender()
+	{
+		writeStr(PSTR("{\"result\":\"OK\"}"));
+	}
+};
+
+#endif

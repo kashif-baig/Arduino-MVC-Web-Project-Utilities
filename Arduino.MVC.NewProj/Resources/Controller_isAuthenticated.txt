@@ -1,0 +1,54 @@
+        // Check if request is authenticated.
+        if (!request->isAuthenticated())
+        {
+            if (request->isAjax())
+            {
+                // Return 'Forbidden' status code for unauthenticated AJAX requests.
+                return new (View) HttpStatusCodeView(403);
+            }
+            else if (strcasecmp_P(argv[0], PSTR("login")) != 0)
+            {
+                // Redirect to Login if not authenticated.
+                return new (View) HttpStatusCodeView(302, "/Login");
+            }
+        }
+
+        if (strcasecmp_P(argv[0], PSTR("login")) == 0)
+        {
+            LoginModel *model = new (Model) LoginModel();
+            LoginView *loginView = new (View) LoginView(model);
+
+            if (!isHttpPost)
+            {
+                // Since this is a GET request for the login page,
+                // logout currently authenticated user.
+                auth.invalidateUserSession(request->getAuthenticatedUser());
+                webServer->setAuthTicket(NULL);
+            }
+            else
+            {
+                // Bind posted form data to login model.
+                webServer->bindModel(model);
+
+                // Check if Login submit button was pressed.
+                if (model->loginPressed)
+                {
+                    // Check if username and password are valid.
+                    const char *ticket = auth.authenticate(model->username, model->password);
+                    
+                    if (ticket != NULL)
+                    {
+                        // Set authentication ticket, which will be persisted to a cookie.
+                        webServer->setAuthTicket(ticket);
+                        
+                        // Perform redirect.
+                        return new (View) HttpStatusCodeView(302, "/");
+                    }
+                    else
+                    {
+                        model->status = LSLoginFailed;
+                    }
+                }
+            }
+            return new (Layout) LayoutTemplateView(loginView);
+        }

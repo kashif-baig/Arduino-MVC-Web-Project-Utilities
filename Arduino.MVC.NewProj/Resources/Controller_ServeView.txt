@@ -1,0 +1,6 @@
+        if ($defaultcheck$strcasecmp_P(argv[0], PSTR("$viewname$")) == 0)
+        {
+            $viewname$Model *model = new (Model) $viewname$Model();
+            $viewname$View *$viewname_camel$View =  new (View) $viewname$View(model);
+            return new (Layout) LayoutTemplateView($viewname_camel$View);
+        }

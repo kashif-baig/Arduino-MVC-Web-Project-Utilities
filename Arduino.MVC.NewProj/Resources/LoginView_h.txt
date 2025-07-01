@@ -1,0 +1,42 @@
+#ifndef LOGINVIEW_H
+#define LOGINVIEW_H
+
+$headingtext$
+
+#include "ILayoutContentView.h"
+#include "LoginModel.h"
+
+class LoginView : public ILayoutContentView
+{
+public:
+	LoginView(LoginModel *model, HttpRequest *request = getDefaultRequest()) : ILayoutContentView(ViewIdNotSpecified, NULL, request)
+	{
+		this->model = model;
+		this->viewMimeType = TextHtml;
+	}
+	LoginModel *getModel() const { return model; }
+protected:
+	LoginModel *model;
+
+	void renderTitle()
+	{
+		writeStr(PSTR("Login"));
+	}
+
+	void renderBody()
+	{
+		writeStr(PSTR("<p>Type in credentials and press Login.</p><form method=\"post\" action=\"/Login\" id=\"form1\"><span>Username</span><br /><input type=\"text\" name=\"user\" value=\""));
+		response->print(model->username);
+		writeStr(PSTR("\" /><br /><span>Password</span><br /><input type=\"password\" name=\"pass\" value=\"\" /><br /><input type=\"submit\" name=\"btn1\" value=\"Login\" /></form><br />"));
+		if (model->status == LSLoginSuccess)
+		{
+			writeStr(PSTR("<p>Login successful.</p>"));
+		}
+		else if (model->status == LSLoginFailed)
+		{
+			writeStr(PSTR("<p>Login failed.</p>"));
+		}
+	}
+};
+
+#endif

@@ -1,0 +1,15 @@
+$headingtext$
+@viewname $viewname$
+@minify true
+@mimetype TextHtml
+@viewbase ILayoutContentView
+@modeltype $viewname$Model*
+@include "$viewname$Model.h"
+
+@content Title
+
+    $viewname$ page
+
+@content Body
+
+    <p>This is the $viewname$ page</p>

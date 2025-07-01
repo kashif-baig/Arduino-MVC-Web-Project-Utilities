@@ -1,0 +1,6 @@
+            if (strcasecmp_P(argv[1], PSTR("$viewnamestripped$")) == 0)
+            {
+                $viewname$Model *model = new (Model) $viewname$Model();
+                $viewname$View *$viewname_camel$View = new (View) $viewname$View(model);
+                return $viewname_camel$View;
+            }

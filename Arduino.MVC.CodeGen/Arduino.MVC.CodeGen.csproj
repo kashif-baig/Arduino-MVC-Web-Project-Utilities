@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <SignAssembly>false</SignAssembly>
+    <Authors>Kashif Baig</Authors>
+    <Company />
+    <Copyright>© 2025 Kashif Baig</Copyright>
+    <Description>Converts ASP like markup to native Arduino C++ code. For use with Arduino MVC web server library. </Description>
+    <PackageProjectUrl>https://www.cohesivecomputing.co.uk/arduino-web-development-pushing-the-limits/</PackageProjectUrl>
+    <Title>Arduino MVC View Builder</Title>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+</Project>

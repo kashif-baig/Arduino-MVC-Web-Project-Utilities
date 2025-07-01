@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Arduino.MVC.CodeGen": {
+      "commandName": "Project",
+      "commandLineArgs": "\"O:\\Projects\\Arduino\\Sketches\\MvcWebServer-3\\MvcWebServer_ResponsiveApp\\asp_files\" \"O:\\Projects\\Arduino\\Sketches\\MvcWebServer-3\\MvcWebServer_ResponsiveApp\""
+    }
+  }
+}

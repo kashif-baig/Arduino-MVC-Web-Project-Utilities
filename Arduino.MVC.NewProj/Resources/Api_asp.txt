@@ -1,0 +1,9 @@
+$headingtext$
+@viewname $viewname$
+@mimetype ApplicationJson
+@modeltype $viewname$Model*
+@include "$viewname$Model.h"
+
+{
+    "result":"OK"
+}

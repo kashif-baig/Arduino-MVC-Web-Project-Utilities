@@ -1,0 +1,34 @@
+#ifndef $viewname_upper$VIEW_H
+#define $viewname_upper$VIEW_H
+
+$headingtext$
+
+#include "ILayoutContentView.h"
+#include "$viewname$Model.h"
+
+class $viewname$View : public ILayoutContentView
+{
+public:
+	$viewname$View($viewname$Model *model, HttpRequest *request = getDefaultRequest())
+		: ILayoutContentView(ViewIdNotSpecified, NULL, request)
+	{
+		this->model = model;
+		this->viewMimeType = TextHtml;
+	}
+	$viewname$Model *getModel() const { return model; }
+
+protected:
+	$viewname$Model *model;
+
+	void renderTitle()
+	{
+		writeStr(PSTR("$viewname$"));
+	}
+
+	void renderBody()
+	{
+		writeStr(PSTR("<p>This is the $viewname$ page</p>"));
+	}
+};
+
+#endif

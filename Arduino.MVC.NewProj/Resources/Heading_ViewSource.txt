@@ -1,0 +1,3 @@
+@rem Not using Arduino.MVC.CodeGen? Select all text then copy/paste in to panel at https://mvc-view-builder.cohesivecomputing.co.uk/.
+@rem Build view code, then copy/paste resulting code back in to $viewname$View.h
+@rem Do not leave any blank lines at top or between directives.

@@ -1,0 +1,8 @@
+{
+    "board": "arduino:avr:uno",
+    "port": "COM3",
+    "sketch": "$projectname$.ino",
+    "output": "../.build/$projectname$",
+    "programmer": "Atmel STK500 development board",
+    "prebuild": "pwsh \".vscode/BuildViews.ps1\""
+}

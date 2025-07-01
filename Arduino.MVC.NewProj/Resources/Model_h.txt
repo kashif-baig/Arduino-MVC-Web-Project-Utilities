@@ -1,0 +1,15 @@
+#ifndef $viewname_upper$MODEL_H
+#define $viewname_upper$MODEL_H
+
+#include "IBindableModel.h"
+
+class $viewname$Model
+{
+public:
+
+
+private:
+
+};
+
+#endif

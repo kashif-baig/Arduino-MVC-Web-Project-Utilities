@@ -1,0 +1,5 @@
+        if (strcasecmp_P(argv[0], PSTR("api")) == 0)
+        {
+$serveapi$
+            return NULL;
+        }
